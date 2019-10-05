@@ -15,7 +15,7 @@ export class AppComponent {
   avatar: string = null;
   user :string ="nasa";
   totalPages : string = "100";
-constructor(private apiService: ApiService, private spinner: NgxSpinnerService) {
+constructor(private apiService: ApiService, public spinner: NgxSpinnerService) {
 
 
 }
