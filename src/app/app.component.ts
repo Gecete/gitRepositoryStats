@@ -39,8 +39,11 @@ recursiveCallback (page){
     }
     if(headLinks.link!=undefined){
       this.totalPages= this.getTotal(this.getLinks(headLinks.link));
+      page++;
+    }else{
+      this.chargeDone=true;
+      this.totalPages="0";
     }
-    page++;
     if(page<=this.totalPages){
       this.recursiveCallback(page);
     }}}, error => {
@@ -111,6 +114,8 @@ parse_link_header(header) {
 
  ngOnInit() {
   this.chargeDone=false;
+  this.avatar=null;
+  this.repos=[];
   this.getUserImg()
   this.recursiveCallback("1");
   
