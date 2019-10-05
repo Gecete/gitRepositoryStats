@@ -12,14 +12,20 @@
   <form class="form-inline">
   <div class="form-group">
     <input name="myinput" placeholder="Select GitHub User" class="form-control margin" [(ngModel)]="user"/>
-    <button (click)="recursiveCallback('1'); getUserImg()" class="btn btn-info margin">Search</button>
+    <button (click)="recursiveCallback('1'); getUserImg(); spinner.show();" class="btn btn-info margin">Search</button>
   </div>
 </form>
 </div>
-
+<h3 class="center" ng-cloak *ngIf="chargeDone && repos.length===0">This user has no repositories</h3>
+<ngx-spinner
+  bdColor="transparent"
+  size="large"
+  color="grey"
+  type="ball-scale-multiple"
+></ngx-spinner>
 <div class="col-sm-12 col-md-6">
-    <app-table *ngIf="repos.length>0" [repos]=repos></app-table>
-    <h3 class="center" *ngIf="repos.length==0">This user has no repositories</h3>
+    <app-table  *ngIf="chargeDone && repos.length>0" [repos]=repos></app-table>
+    
     </div>
     <div class="col-sm-12 col-md-6">
         <app-pie *ngIf="chargeDone && repos.length>0" [repos]=repos></app-pie>

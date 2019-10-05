@@ -8,7 +8,7 @@ import { SearchFilterPipe } from '../pipes/searchFilter';
 })
 export class TableComponent  {
   public searchInput:any = '';
-  @Input('repos') repos: JSON;
+  @Input('repos') repos: JSON =null;
 
   constructor() { }
 

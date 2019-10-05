@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,12 +15,11 @@ export class AppComponent {
   avatar: string = null;
   user :string ="nasa";
   totalPages : string = "100";
-constructor(private apiService: ApiService) {
+constructor(private apiService: ApiService, private spinner: NgxSpinnerService) {
 
 
 }
 recursiveCallback (page){
-  
   this.apiService.get('users/'+this.user+'/repos?per_page=100&page='+page).subscribe(res => {
     
   
@@ -29,6 +29,7 @@ recursiveCallback (page){
     this.repos=this.repos.concat(res.json());
     if(page ==this.totalPages){
       this.chargeDone=true;
+      this.spinner.hide();
     }
     page++;
     this.recursiveCallback(page);
@@ -41,6 +42,7 @@ recursiveCallback (page){
       this.totalPages= this.getTotal(this.getLinks(headLinks.link));
       page++;
     }else{
+      this.spinner.hide();
       this.chargeDone=true;
       this.totalPages="0";
     }
@@ -113,6 +115,7 @@ parse_link_header(header) {
 
 
  ngOnInit() {
+  this.spinner.show();
   this.chargeDone=false;
   this.avatar=null;
   this.repos=[];

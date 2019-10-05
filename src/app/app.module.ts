@@ -7,7 +7,8 @@ import { ApiService } from './api.service';
 import { TableComponent } from './table/table.component';
 import { SearchFilterPipe } from './pipes/searchFilter'
 import { ArraySortPipe } from './pipes/sortPipe';
-import { PieComponent } from './pie/pie.component'
+import { PieComponent } from './pie/pie.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PieComponent } from './pie/pie.component'
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule    
+    FormsModule,
+    NgxSpinnerModule    
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
