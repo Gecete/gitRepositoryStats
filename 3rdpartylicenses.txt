@@ -71,6 +71,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 MIT
 MIT
 
+@angular/common@5.2.7
+MIT
+MIT
+
+ngx-spinner@2.0.0
+MIT
+MIT
+
 @angular/platform-browser@5.2.7
 MIT
 MIT
@@ -80,10 +88,6 @@ MIT
 MIT
 
 @angular/http@5.2.7
-MIT
-MIT
-
-@angular/common@5.2.7
 MIT
 MIT
 
