@@ -27,7 +27,7 @@
     <app-table  *ngIf="chargeDone && repos.length>0" [repos]=repos></app-table>
     
     </div>
-    <div class="col-sm-12 col-md-6">
-        <app-pie *ngIf="chargeDone && repos.length>0" [repos]=repos></app-pie>
+    <div class="col-sm-12 col-md-6 center overflow">
+        <app-pie class="pie"  *ngIf="chargeDone && repos.length>0" [repos]=repos></app-pie>
     </div>
 </div>
