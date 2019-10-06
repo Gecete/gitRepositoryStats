@@ -63,6 +63,7 @@ getUserImg(){
   }, error => {
       this.avatar=null;
       this.repos=[];
+      this.spinner.hide();
       console.log(error); // for development only.
   });
 }
